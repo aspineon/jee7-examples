@@ -69,6 +69,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>jee7-example</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -79,20 +80,27 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.glassfish.embedded</groupId>
 				<artifactId>maven-embedded-glassfish-plugin</artifactId>
 				<version>4.0</version>
 				<configuration>
-					<goalPrefix>glassfish</goalPrefix>
-					<app>target/test.war</app>
-					<port>8080</port>
-					<contextRoot>test</contextRoot>
+                    <app>target/jee7-example</app>
+                    <port>8080</port>
+                    <contextRoot>/test</contextRoot>
 				</configuration>
 				<executions>
 					<execution>
 						<phase>package</phase>
 						<goals>
 							<goal>run</goal>
+							<goal>deploy</goal>
 						</goals>
 					</execution>
 				</executions>
