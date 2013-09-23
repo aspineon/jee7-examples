@@ -1,0 +1,12 @@
+<hornet>
+
+	<queue name="testQueue">
+		<entry name="/queue/queueA" />
+	</queue>
+
+	<topic name="testTopic">
+		<entry name="/topic/topicA" />
+	</topic>
+
+
+</hornet>
