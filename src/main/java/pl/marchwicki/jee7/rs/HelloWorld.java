@@ -3,6 +3,9 @@ package pl.marchwicki.jee7.rs;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.validation.constraints.Size;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -25,8 +28,23 @@ public class HelloWorld {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public ListWrapper sayHello(@PathParam("name") String name) {
+		//..
 		return new ListWrapper(new String[] { "Hello " + name, "Guten tag " + name });
 	}
+	
+	@Path("/simple/{name}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public JsonObject saySimpleHello(@PathParam("name") String name) {
+		return Json.createObjectBuilder()
+			.add("data", Json.createArrayBuilder()
+					.add("Hello " + name)
+					.add("Guten tag " + name)
+					.build())	
+			.build();
+	}
+	
+	
 
 	@XmlRootElement
 	public static class ListWrapper {
