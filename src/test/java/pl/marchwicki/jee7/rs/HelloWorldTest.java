@@ -45,7 +45,7 @@ public class HelloWorldTest {
     @Test
     public void shouldRetrieveListOfBooksAsPlainText() {
         URI uri = URI.create(
-                (baseURL.toExternalForm()+"hello/Jakub" ) );
+                (baseURL.toExternalForm()+"rs/hello/Jakub" ) );
         System.out.printf("uri=%s\n", uri ) ;
 
         Client client = ClientBuilder.newBuilder().build();
