@@ -13,9 +13,9 @@ import javax.jms.TextMessage;
 @Stateless
 public class SendMessageService {
 
-	@Resource(lookup = "java:global/jms/demoConnectionFactory")
+//	@Resource(lookup = "java:global/jms/demoConnectionFactory")
 	ConnectionFactory connectionFactory;
-	@Resource(lookup = "java:global/jms/demoQueue")
+//	@Resource(lookup = "java:global/jms/demoQueue")
 	Queue demoQueue;
 
 	public void sendMessage(String payload) {
